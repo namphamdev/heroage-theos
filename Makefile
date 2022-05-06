@@ -1,5 +1,5 @@
-ARCHS = armv7 arm64
-TARGET = iphone:clang:latest:latest
+ARCHS = arm64e
+TARGET := iphone:clang:latest:7.0
 #CFLAGS = -fobjc-arc
 #THEOS_PACKAGE_DIR_NAME = debs
 

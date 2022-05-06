@@ -1,4 +1,4 @@
-#import "writeData.h"
+#import "vm_writeData.h"
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <substrate.h>
@@ -14,9 +14,13 @@ inline bool GetPrefBool(NSString *key) {
 
 %ctor {
 	if(GetPrefBool(@"key1")) {
-		writeData(0x0000000100C0557C, 0x00008052C0035F);
-		writeData(0x000000010134C674, 0x0900805209E90139);
-		writeData(0x0000000100C00FD8, 0x28008052687200B9);
+		// CharacterData_GetTotalManaCost
+		vm_writeData(0x100C0557C, 0x00008052);
+		vm_writeData(0x100C05580, 0xC0035FD6);
+		// OnFreeGiftButton
+		vm_writeData(0x10134C674, 0x09008052);
+		// Basemonster_onenable
+		vm_writeData(0x100C00FD8, 0x28008052);
 	}
 }
 
