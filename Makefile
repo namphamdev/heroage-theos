@@ -36,7 +36,7 @@ include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = heroage
 
-heroage_CFLAGS = -fobjc-arc
+heroage_CFLAGS = -fobjc-arc -target x86_64-apple-darwin20.3.0
 heroage_CCFLAGS = -std=c++11 -fno-rtti -fno-exceptions -DNDEBUG
 
 ifeq ($(IGNORE_WARNINGS),1)
