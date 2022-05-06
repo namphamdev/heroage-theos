@@ -14,6 +14,7 @@
 	vm_writeData(0x10134C674, 0x09008052);
 	// Basemonster_onenable
 	vm_writeData(0x100C00FD8, 0x28008052);
+	
 }
 
 
