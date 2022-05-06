@@ -1,10 +1,10 @@
-Package: com.csci.patcher.heroage
-Name: heroage Cheats
-Depends: mobilesubstrate, preferenceloader
+Package: com.heroage.mod
+Name: heroage Mod Menu
+Depends: mobilesubstrate
 Version: 1.0.0
 Architecture: iphoneos-arm
-Description: An awesome Cydia Substrate tweak from iOSGods.com!
-Maintainer: Rxeyjn
+Description: heroage Mod Menu by NP!
+Maintainer: NP
 Author: NP
 Section: Tweaks
-Homepage: https://iosgods.com
+Homepage: NP
