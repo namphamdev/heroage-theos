@@ -103,7 +103,7 @@ void setupMenu() {
             menuWidth: 250
             menuIcon: Tweak_Icon
             menuButton: Tweak_Icon
-      ]; 
+      ];  
 
     /********************************************************************
         Once menu has been initialized, it will run the setup functions. 
