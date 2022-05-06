@@ -1,4 +1,5 @@
-ARCHS = armv7 arm64
+export ARCHS = arm64 arm64e
+export TARGET = iphone:clang:latest:7.0
 include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = heroage
