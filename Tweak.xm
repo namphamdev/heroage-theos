@@ -109,30 +109,7 @@ void setupMenu() {
 // If the menu button doesn't show up; Change the timer to a bigger amount.
 static void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info) {
   timer(5) {
-    SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
-
-    // Website link, remove it if you don't need it.
-    [alert addButton: NSSENCRYPT("Visit Me!") actionBlock: ^(void) {
-      [[UIApplication sharedApplication] openURL: [NSURL URLWithString: NSSENCRYPT("NP")]];
-      timer(2) {
-        setupMenu();
-      });        
-    }];
-
-    [alert addButton: NSSENCRYPT("Thankyou, understood.") actionBlock: ^(void) {
-      timer(2) {
-        setupMenu();
-      });
-    }];    
-
-    alert.shouldDismissOnTapOutside = NO;
-    alert.customViewColor = [UIColor purpleColor];  
-    alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;   
-    
-    [alert showSuccess: nil
-            subTitle:NSSENCRYPT("HEROAGE - Mod Menu \n\nThis Mod Menu has been made by NP, do not share this without proper credits and my permission. \n\nEnjoy!") 
-              closeButtonTitle:nil
-                duration:99999999.0f];
+    setupMenu();
   });
 }
 
