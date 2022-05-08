@@ -234,7 +234,7 @@ SCLTimerDisplay *buttonTimer;
     _viewText.frame = CGRectMake(12.0f, _subTitleY, _windowWidth - 24.0f, _subTitleHeight);
     _viewText.textContainerInset = UIEdgeInsetsZero;
     _viewText.textContainer.lineFragmentPadding = 0;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    // self.contentInsetAdjustmentBehavior = NO;
     
     // Content View
     _contentView.backgroundColor = [UIColor whiteColor];
@@ -253,7 +253,7 @@ SCLTimerDisplay *buttonTimer;
 
 - (void)setupNewWindow {
     // Save previous window
-    self.previousWindow = [UIApplication sharedApplication].keyWindow;
+    self.previousWindow = [[UIApplication sharedApplication] delegate].window;
     
     // Create a new one to show the alert
     UIWindow *alertWindow = [[UIWindow alloc] initWithFrame:[self mainScreenFrame]];
@@ -520,7 +520,7 @@ SCLTimerDisplay *buttonTimer;
 - (void)addActivityIndicatorView
 {
     // Add UIActivityIndicatorView
-    _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    _activityIndicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
     _activityIndicatorView.frame = CGRectMake(kCircleHeight / 2 - kActivityIndicatorHeight / 2, kCircleHeight / 2 - kActivityIndicatorHeight / 2, kActivityIndicatorHeight, kActivityIndicatorHeight);
     [_circleView addSubview:_activityIndicatorView];
 }
@@ -1156,7 +1156,7 @@ SCLTimerDisplay *buttonTimer;
 
 - (CGRect)mainScreenFrame
 {
-    return [self isAppExtension] ? _extensionBounds : [UIApplication sharedApplication].keyWindow.bounds;
+    return [self isAppExtension] ? _extensionBounds : [[UIApplication sharedApplication] delegate].window.bounds;
 }
 
 - (BOOL)isAppExtension
@@ -1176,7 +1176,7 @@ SCLTimerDisplay *buttonTimer;
 
 - (void)makeBlurBackground
 {
-    UIView *appView = (_usingNewWindow) ? [UIApplication sharedApplication].keyWindow.subviews.lastObject : _rootViewController.view;
+    UIView *appView = (_usingNewWindow) ? [[UIApplication sharedApplication] delegate].window.subviews.lastObject : _rootViewController.view;
     UIImage *image = [UIImage convertViewToImage:appView];
     UIImage *blurSnapshotImage = [image applyBlurWithRadius:5.0f
                                                   tintColor:[UIColor colorWithWhite:0.2f

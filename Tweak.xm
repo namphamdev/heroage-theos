@@ -23,20 +23,22 @@ void setup() {
 
 
   // Empty switch - usefull with hooking
-  [switches addSwitch:NSSENCRYPT("Masskill")
-    description:NSSENCRYPT("Teleport all enemies to you without them knowing")
-  ];
+  // [switches addSwitch:NSSENCRYPT("Masskill")
+  //   description:NSSENCRYPT("Teleport all enemies to you without them knowing")
+  // ];
 
   // Offset Switch with one patch
-  // [switches addOffsetSwitch:NSSENCRYPT("God Mode")
-  //   description:NSSENCRYPT("You can't die")
-  //   offsets: {
-  //     ENCRYPTOFFSET("0x1005AB148")
-  //   }
-  //   bytes: {
-  //     ENCRYPTHEX("0x00E0BF12C0035FD6")
-  //   }
-  // ];
+  [switches addOffsetSwitch:NSSENCRYPT("Farm Icarus")
+    description:NSSENCRYPT("Farm Icarus at map 200")
+    offsets: {
+      ENCRYPTOFFSET("0x1012F6DCC"),
+      ENCRYPTOFFSET("0x1012F6DD0")
+    }
+    bytes: {
+      ENCRYPTHEX("0x60008052"),
+      ENCRYPTHEX("0x81008052")
+    }
+  ];
 
   // Offset switch with multiple patches
   // [switches addOffsetSwitch:NSSENCRYPT("One Hit Kill")
@@ -115,7 +117,20 @@ void setupMenu() {
 // If the menu button doesn't show up; Change the timer to a bigger amount.
 static void didFinishLaunching(CFNotificationCenterRef center, void *observer, CFStringRef name, const void *object, CFDictionaryRef info) {
   timer(5) {
-    setupMenu();
+    SCLAlertView *alert = [[SCLAlertView alloc] initWithNewWindow];
+    [alert addButton: NSSENCRYPT("Thankyou, understood.") actionBlock: ^(void) {
+      timer(2) {
+        setupMenu();
+      });
+    }];    
+    alert.shouldDismissOnTapOutside = NO;
+    alert.customViewColor = [UIColor purpleColor];  
+    alert.showAnimationType = SCLAlertViewShowAnimationSlideInFromCenter;   
+    
+    [alert showSuccess: nil
+            subTitle:NSSENCRYPT("HEROAGE - Mod Menu \n\nThis Mod Menu has been made by NP, do not share this without proper credits and my permission. \n\nEnjoy!") 
+              closeButtonTitle:nil
+                duration:99999999.0f];
   });
 }
 

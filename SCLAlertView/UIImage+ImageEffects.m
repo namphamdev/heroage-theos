@@ -296,7 +296,7 @@
 
 + (UIImage *)convertViewToImage
 {
-    UIWindow *keyWindow = [[UIApplication sharedApplication]keyWindow];
+    UIWindow *keyWindow = [[UIApplication sharedApplication] delegate].window;
     CGRect rect = [keyWindow bounds];
     UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0f);
     CGContextRef context = UIGraphicsGetCurrentContext();
